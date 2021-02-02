@@ -7,6 +7,16 @@ pipeline {
     }
      stages {
 
+         stage('Make setup') {
+              steps {
+                  sh 'make setup'
+              }
+         }
+         stage('Make install') {
+              steps {
+                  sh 'make install'
+              }
+         }
          stage('Lint Files') {
               steps {
                   sh 'make lint'
