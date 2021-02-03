@@ -14,6 +14,7 @@ pipeline {
          }
          stage('Make install') {
               steps {
+                  sh '#!/bin/bash'
                   sh 'make install'
               }
          }
