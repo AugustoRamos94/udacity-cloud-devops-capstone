@@ -9,12 +9,12 @@ pipeline {
 
          stage('Make setup') {
               steps {
+                  sh '#!/bin/bash'
                   sh 'make setup'
               }
          }
          stage('Make install') {
               steps {
-                  sh '#!/bin/bash'
                   sh 'make install'
               }
          }
