@@ -28,4 +28,4 @@ lint:
 	# This should be run from inside a virtualenv
 	pylint --disable=R,C,W0212,W1203,W0613,W1401,W0612,W0611,W:171,E0401 app.py
 
-all: install lint test
+all: setup install lint test
