@@ -7,17 +7,12 @@ pipeline {
     }
      stages {
 
-          stage('Install') {
+          stage('Make') {
               steps {
-                  sh 'make install'
+                  sh 'make all'
               }
          }
          
-         stage('Lint Files') {
-              steps {
-                  sh 'make lint'
-              }
-         }
          stage('Docker Build'){
              steps{
                  script {
