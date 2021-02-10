@@ -2,7 +2,7 @@ pipeline {
      agent any
      environment {
         registry = "augustoramos94/capstone-project"
-        registryCredential = 'dockerid'
+        registryCredential = 'dockerhub'
         dockerImage = ''
     }
      stages {
