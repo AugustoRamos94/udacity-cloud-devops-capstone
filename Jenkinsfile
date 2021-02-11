@@ -34,7 +34,7 @@ pipeline {
                 sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }
-        stage('Set Kubernetes Config'){
+        stage('Create Kubernetes Config'){
             steps {
                 withAWS(region:'us-west-2',credentials:'aws') {
                     sh '''
@@ -42,7 +42,8 @@ pipeline {
                          '''
                 }
             }
-             
+        }
+        stage('Update Kubernetes Config'){
              steps {
                 withAWS(region:'us-west-2',credentials:'aws') {
                     sh '''
