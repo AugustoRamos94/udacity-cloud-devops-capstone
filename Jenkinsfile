@@ -37,7 +37,7 @@ pipeline {
         stage('Set Kubernetes Config'){
             steps {
                 withAWS(region:'us-west-2',credentials:'aws') {
-                    sh 'kube.sh'                    
+                    sh './kube.sh'                    
                 }
             }
         }
