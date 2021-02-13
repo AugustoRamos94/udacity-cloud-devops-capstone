@@ -53,12 +53,14 @@ pipeline {
             }
         }
         stage('Deploy K8s'){
-            steps{
-                sh '''
-                    export IMAGE="$registry:$BUILD_NUMBER"
-                    sed -ie "s~IMAGE~$IMAGE~g" flask-container.yml
-                    kubectl apply -f ./kubernetes
-                    '''
+            steps {
+                 withAWS(credentials:'aws') {
+                     sh '''
+                         export IMAGE="$registry:$BUILD_NUMBER"
+                         sed -ie "s~IMAGE~$IMAGE~g" flask-container.yml
+                         kubectl apply -f ./kubernetes
+                         '''
+                 }
             }
         }         
      }
