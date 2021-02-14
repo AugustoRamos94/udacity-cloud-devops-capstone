@@ -58,6 +58,7 @@ pipeline {
                      sh '''
                          export IMAGE="$registry:$BUILD_NUMBER"
                          sed -ie "s~IMAGE~$IMAGE~g" flask-container.yml
+                         kubectl apply -f flask-container.yml
                          kubectl apply -f flask-load-balancer.yml
                          '''
                  }
